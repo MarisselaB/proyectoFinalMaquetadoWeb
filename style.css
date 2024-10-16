@@ -1,0 +1,283 @@
+/*h1 {
+    font-family: "Inconsolata", monospace;
+    font-family: "Roboto Mono", monospace;
+}*/
+
+/* Normalizacion */
+
+* {
+padding: 0;
+margin: 0;
+box-sizing:border-box; /*E sto mantiene el ancho y el alyo a pesar de padding y border */
+font-family: "Inconsolata", monospace;
+list-style: none; /* Quitar los puntos y decoracion de  las listas */
+text-decoration: none; /* Esto quita el subrayado de los enlaces */
+color: white;
+}
+
+body {
+    background-color: black; /* To do: borrar cuando tengamos el fondo final */
+}
+
+header {
+    position: fixed; /* Esto hace que el header se quede fijo en la parte superior */
+    right: 0;
+    top: 0;
+    z-index: 100; /* Esto hacer que el header se muestre por encima */
+    width: 100%;
+    display: flex; /* Esto hará que los elementos se acomoden en linea */ 
+    align-items: center; /* Centra verticalmente */
+    justify-content: space-between; /* Hace que los elementos se separen */
+    padding: 15px 3%; /* 15px en el eje vertical y 3% en el eje horizontal */
+    background-color: transparent;
+}
+
+.logo {
+    font-size: 40px;
+    font-weight: 800; /* este es el grueso de la letra */
+    text-transform: uppercase;
+}
+
+.navlist {
+    display: flex;/*Esto srive para que los elementos de la lista UL se pongan en linea*/
+}
+
+.navlist a {
+        margin-left: 60px; /*Esto es para separar las palabras */
+        font-size: 15px;
+        font-weight: 600;
+        border-bottom: 2px solid transparent; /*Este es un subrayado transparente*/
+        transition: all .5s ease; /*Esto pone que todas las transiciones duren 0.5 segundos */
+    }
+
+.navlist a:hover {
+    border-bottom: 2px solid white; /*Este es el subrayado blanco que aparecera en los items de navegacion cuando ponemos el cursor encima */
+}
+
+#menu-icon {
+    display: none; /*Esto lo pongo en none para que solo se ea cuando la pagina este colapsada de forma horizontal*/
+} 
+
+#menu-icon {
+    color: white;
+    font-size: 35px;
+    z-index: 101; /* para que este encima del header */
+    cursor: pointer; /*para que apareza el cursos con forma de manito cada vez que pasemos el mouse por encima de las opciones de la barra de navegacion */
+}
+
+#menu-toggle {
+    display: none; /* nunca quiero que se vea el checkbox*/
+}
+
+.menu.icon.action {
+    display: none; /*para que no se le pueda hacer click*/
+}
+
+.hero {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(245.59deg,#31494e 0%, #385e70 25%, #131313 75%); /*Esto es un fondo de color en degradado*/
+    position: relative; /* para que sea relativo al contenedor, nos permite usar top, bottom, left and right.*/
+    display: grid; /*Esto es para que el hero se pueda dividir en 2 colunmas*/
+    grid-template-columns: 1fr 1fr; /*crear 2 columnas*/
+    align-items: center; /* para alinear verticalmente el hero */
+    gap: 2rem; /*haya espacio de 2 rem entre las 2 columnas */ 
+}
+
+section {
+    padding: 0 8%;
+}
+
+.hero-text h1 {
+    font-family: "Roboto Mono", monospace;
+    font-size: 50px;
+    line-height: 1;
+    margin-bottom: 0 0 30px; /*arriba, drecha izquierda y abajo */
+}
+
+
+.hero-text h5 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.hero-text h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 80%;
+    margin: 20px 0 40px 0;
+    line-height: 1.9;
+}
+
+.hero-img img {
+    width: 400px;
+    margin: 10% 0 0 10%;
+    border-radius: 80px;
+    height: auto;
+    transition: all 4s linear; /*esto hace que la transicion sea lineal*/
+}
+
+.hero-img img:hover {
+    width: 450px;
+    opacity: 0.6;
+}
+
+.hero-text a {
+    display: inline-block; /*esto va a permitir darle un ancho y un alto*/
+    background-color: #4d4d4d;
+    border: 1px solid transparent;
+    padding: 15px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 10px;
+    text-transform: uppercase;
+    transition: all .5s ease;
+}
+
+.hero-text a:hover{
+    background-color: transparent;
+    border: 1px solid white;
+    transform: translateX(8px); /*para que se mueva de forma horizontal*/
+}
+
+.hero-text a.videos {
+    background-color: transparent;
+    border: 1px solid white;
+    margin-left: 20px;
+}
+
+.hero-text a.videos {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.icons {
+    position: absolute;
+    top: 50vh;
+    padding: 0 3%;
+    transform: translateY(-50%);
+}
+
+.icons i {
+    display: block;
+    margin: 26px 0; /* 26px de margin vertical, pero 0px de horizontal*/
+    font-size: 24px;
+    transition: all .5s ease;
+}
+
+.icons i:hover{
+    color: #4d4d4d;
+    transform: translateY(-5px);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 6%;
+    right: 3%;
+}
+
+.scroll-down i {
+    display: block;
+    padding: 12px;
+    font-size: 25px;
+    background-color: #21383d;
+    border-radius: 10px;
+    transition: all .5s ease;
+}
+
+.scroll-down i:hover {
+    transform: translateY(-5px);
+}
+
+/*Aca vamos a poner mediaqueris para que la pagina sea responsive*/
+
+@media (max-width: 992px){
+    section {
+        padding: 0 3%;
+        transition: .2s;
+    }
+
+    .hero-text {
+        padding-top: 0;
+    }
+
+    .hero-img { 
+        text-align: center;
+    }
+
+    .hero-img img {
+        width: 80%;
+        margin: 10% 0 0 10%;
+    }
+
+    .hero-text p {
+        font-size: 69%;
+    }
+
+    .icons {
+        display: none;
+    }
+
+    .scroll-down {
+        display: none;
+    }
+}
+
+    @media (max-width: 768px){
+    .menu-icon-action {
+        display: block;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .hero-text {
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .hero-img img {
+        margin: 0;
+    }
+
+    .hero {
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .navlist {
+        position: absolute; /* usa esto para que se ponga por encima*/
+        top: 100%;
+        right: -100%; /*si se coloca 0 en esta casilla aparece una pequena caja con la lista de navegacion. Se esta dejando -100% para que desaparezca de la pantalla y quede a un lado y no se visualice.*/
+        width: 200px;
+        height: 180px;
+        background-color:#021719ef;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        transition: all .01 ease;
+    }
+
+    .navlist a {
+        display: block;
+        margin: 7px 0;
+
+    }
+
+    #menu-toggle:checked + label.menu-icon-action + ul{
+        right: 0;} /* al principio de la pagina se creo un input con una casilla de seleccion, posteriormente la casilla se ocultó, y ahora se hace esto para que al momento de dar click en la hamburguesa se despliegue el menu. Esto se hace porque no estamos usando JAVASCRIPT.*/
+    
+}
+
+
